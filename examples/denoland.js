@@ -5,6 +5,8 @@ const router = new Router(/* { optional: 'opts', baseURL: 'http://my-domain.info
 
 router
 	.get("/", () => ok("Homepage hehe!"))
-	.get("/item/:id", (req, { params }) => ok(`Matching id: ${params.id}`));
+	.get("/item/:id", (req, { params }) => ok(`Matching id: ${params.id}`))
+	.get("/api/hello", () => json({ hello: "world" }))
+	.get("/api/hi/:name", (req, { params: { name } }) => json({ hi: name }));
 
-serve((req, connInfo) => router.fetch(req /*, env, ctx or { connInfo }*/));
+serve((req, connInfo) => router.fetch(req /*, env, ctx*/));
