@@ -1,4 +1,4 @@
-import { Router, ok, notFound } from "https://ghuc.cc/tunnckoCore/urlpattern-router/index.js";
+import { Router, ok, notFound } from "urlpattern-router";
 
 const router = new Router(/* { baseURL: 'https://my-app-example.com' } */);
 
