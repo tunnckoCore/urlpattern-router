@@ -1,12 +1,22 @@
 import { serve } from "https://deno.land/std@0.158.0/http/server.ts";
-import { Router, ok, notFound } from "https://ghuc.cc/tunnckoCore/urlpattern-router/index.js";
+import {
+	Router,
+	ok,
+	notFound,
+	json,
+} from "https://ghuc.cc/tunnckoCore/urlpattern-router/index.js";
 
-const router = new Router(/* { optional: 'opts', baseURL: 'http://my-domain.info' } */);
+const dynamicImport =
+	(filepath) =>
+	async (...args) =>
+		(await import(filepath)).default(...args);
+
+const router = new Router();
 
 router
-	.get("/", () => ok("Homepage hehe!"))
-	.get("/item/:id", (req, { params }) => ok(`Matching id: ${params.id}`))
+	.get("/", dynamicImport("./home.js"))
+	.get("/item/:id", dynamicImport("./items.js"))
 	.get("/api/hello", () => json({ hello: "world" }))
 	.get("/api/hi/:name", (req, { params: { name } }) => json({ hi: name }));
 
-serve((req, connInfo) => router.fetch(req /*, env, ctx*/));
+serve((req) => router.fetch(req));

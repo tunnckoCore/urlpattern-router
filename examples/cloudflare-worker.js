@@ -1,10 +1,9 @@
-import { Router, ok, notFound } from "urlpattern-router";
+import { Router, ok, notFound, json } from "urlpattern-router";
 
 const router = new Router(/* { baseURL: 'https://my-app-example.com' } */);
 
 // ok(body) - helper for `new Response(body, { status: 200, statusText: 'OK' })`
 // notFound(body) - for 404
-// json({ some: 123 }) - for json responses
 
 router
 	.get("/", () => ok("Homepage hehe!"))
