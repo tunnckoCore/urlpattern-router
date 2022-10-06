@@ -1,9 +1,3 @@
-// SPDX-License-Identifier: Apache-2.0
-
-/**
- * Note: mkResponse(), ok(), and notFound(), are inlined here from `@worker-tools/response-creators`
- */
-
 export const mkResponse =
 	(status, statusText) =>
 	(body = null, init = {}) =>
@@ -12,6 +6,11 @@ export const mkResponse =
 			status,
 			statusText,
 		});
+
+export const json = (data) =>
+	mkResponse(200, "OK")(JSON.stringify(data), {
+		headers: { "content-type": "application/json" },
+	});
 
 export const ok = mkResponse(200, "OK");
 export const notFound = mkResponse(404, "Not Found");
