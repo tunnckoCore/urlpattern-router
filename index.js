@@ -14,17 +14,17 @@ export const mkResponse =
     });
 
 export const json = (data) =>
-  mkResponse(200, "OK")(JSON.stringify(data), {
-    headers: { "content-type": "application/json" },
+  mkResponse(200, 'OK')(JSON.stringify(data), {
+    headers: { 'content-type': 'application/json' },
   });
 
-export const ok = mkResponse(200, "OK");
-export const notFound = mkResponse(404, "Not Found");
+export const ok = mkResponse(200, 'OK');
+export const notFound = mkResponse(404, 'Not Found');
 
 export class Router {
   constructor(options = {}) {
     this._routes = [];
-    this._options = { baseURL: "http://example.com", ...options };
+    this._options = { baseURL: 'http://example.com', ...options };
   }
 
   clear() {
@@ -34,8 +34,8 @@ export class Router {
 
   addRoute(pattern, handler) {
     // TODO: support array of function handlers
-    if (typeof handler !== "function") {
-      throw new Error(".addRoute: expect `handler` to be a function");
+    if (typeof handler !== 'function') {
+      throw new Error('.addRoute: expect `handler` to be a function');
     }
 
     const options = this._options;
@@ -45,12 +45,12 @@ export class Router {
       return this;
     }
 
-    const pattrn = pattern || "*";
+    const pattrn = pattern || '*';
 
-    if (typeof pattrn === "string" || typeof pattrn === "object") {
+    if (typeof pattrn === 'string' || typeof pattrn === 'object') {
       this._routes.push({
         pattern:
-          typeof pattrn === "string"
+          typeof pattrn === 'string'
             ? new URLPattern(pattrn, options.baseURL)
             : new URLPattern(pattrn),
 
@@ -66,7 +66,7 @@ export class Router {
     // const { url, method } = request || { url: "/", method: "*" };
 
     if (!(url instanceof URL)) {
-      url = url.startsWith("/")
+      url = url.startsWith('/')
         ? new URL(`http://localhost${url}`)
         : new URL(url);
     }
@@ -125,8 +125,8 @@ export class Router {
       const url = new URL(request.url);
       return new Promise((resolve) =>
         resolve(
-          notFound(`Route Not Found: \`${url.pathname}\` (${request.url})`)
-        )
+          notFound(`Route Not Found: \`${url.pathname}\` (${request.url})`),
+        ),
       );
     }
 
@@ -134,30 +134,30 @@ export class Router {
   }
 
   all(pattern, handler, options) {
-    return this.addRoute(pattern, handler, { ...options, method: "" });
+    return this.addRoute(pattern, handler, { ...options, method: '' });
   }
   any(pattern, handler, options) {
-    return this.addRoute(pattern, handler, { ...options, method: "*" });
+    return this.addRoute(pattern, handler, { ...options, method: '*' });
   }
   get(pattern, handler, options) {
-    return this.addRoute(pattern, handler, { ...options, method: "GET" });
+    return this.addRoute(pattern, handler, { ...options, method: 'GET' });
   }
   post(pattern, handler, options) {
-    return this.addRoute(pattern, handler, { ...options, method: "POST" });
+    return this.addRoute(pattern, handler, { ...options, method: 'POST' });
   }
   put(pattern, handler, options) {
-    return this.addRoute(pattern, handler, { ...options, method: "PUT" });
+    return this.addRoute(pattern, handler, { ...options, method: 'PUT' });
   }
   patch(pattern, handler, options) {
-    return this.addRoute(pattern, handler, { ...options, method: "PATCH" });
+    return this.addRoute(pattern, handler, { ...options, method: 'PATCH' });
   }
   delete(pattern, handler, options) {
-    return this.addRoute(pattern, handler, { ...options, method: "DELETE" });
+    return this.addRoute(pattern, handler, { ...options, method: 'DELETE' });
   }
   head(pattern, handler, options) {
-    return this.addRoute(pattern, handler, { ...options, method: "HEAD" });
+    return this.addRoute(pattern, handler, { ...options, method: 'HEAD' });
   }
   options(pattern, handler, options) {
-    return this.addRoute(pattern, handler, { ...options, method: "OPTIONS" });
+    return this.addRoute(pattern, handler, { ...options, method: 'OPTIONS' });
   }
 }

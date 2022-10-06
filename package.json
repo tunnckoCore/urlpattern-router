@@ -1,35 +1,48 @@
 {
-	"name": "urlpattern-router",
-	"type": "module",
-	"main": "index.js",
-	"files": [
-		"index.js"
-	],
-	"version": "1.0.0",
-	"description": "Router based on URLPattern Web Specification, in 150 lines. An isomorphic router for @denoland, @nodejs, @cloudflare, Browsers, or anything that has support for it.",
-	"scripts": {
-		"cf:local": "echo localhost:8787 && wrangler dev ./examples/cloudflare-worker.js --local",
-		"cf:dev": "echo localhost:8787 && wrangler dev ./examples/cloudflare-worker.js",
-		"denoland": "deno run -A ./examples/denoland.js"
-	},
-	"keywords": [
-		"urlpattern",
-		"url",
-		"url-router",
-		"router",
-		"deno",
-		"workers",
-		"serverless",
-		"vercel",
-		"denoland",
-		"cloudflare",
-		"nodejs",
-		"isomorphic"
-	],
-	"author": "@tunnckoCore",
-	"license": "Apache-2.0",
-	"devDependencies": {
-		"urlpattern-router": "^1.0.0",
-		"wrangler": "^2.1.10"
-	}
+  "name": "urlpattern-router",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "description": "Router based on URLPattern Web Specification, in 150 lines. An isomorphic router for @denoland, @nodejs, @cloudflare, Browsers, or anything that has support for it.",
+  "author": "@tunnckoCore",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "cf:dev": "echo localhost:8787 && wrangler dev ./examples/cloudflare-worker.js",
+    "cf:local": "echo localhost:8787 && wrangler dev ./examples/cloudflare-worker.js --local",
+    "denoland": "deno run -A ./examples/deno/main.js"
+  },
+  "devDependencies": {
+    "@hela/cli": "^5.0.0",
+    "@hela/preset-tunnckocore": "^5.0.0",
+    "@tunnckocore/prettier-config": "^3.0.0",
+    "asia": "^3.3.0",
+    "asia-cli": "^3.3.0",
+    "urlpattern-router": "^1.0.0",
+    "wrangler": "^2.1.10",
+    "xaxa": "^4.1.0"
+  },
+  "hela": "@hela/preset-tunnckocore",
+  "keywords": [
+    "urlpattern",
+    "url",
+    "url-router",
+    "router",
+    "deno",
+    "workers",
+    "serverless",
+    "vercel",
+    "denoland",
+    "cloudflare",
+    "nodejs",
+    "isomorphic"
+  ],
+  "prettier": "@tunnckocore/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "xaxa"
+    ]
+  }
 }

@@ -1,0 +1,10 @@
+<h1>Hello There, World!</h1>
+<script type="module">
+  import 'https://unpkg.com/urlpattern-polyfill/index.js';
+  import { Router } from '../index.js';
+
+  console.log(import.meta.url);
+  console.log(
+    new URLPattern(new URL(import.meta.url).pathname, 'http://foo-bar.com'),
+  );
+</script>
