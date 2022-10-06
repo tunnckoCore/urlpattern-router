@@ -1,0 +1,4 @@
+package-lock*
+node_modules
+*.log
+.env
