@@ -4,22 +4,31 @@
  * Note: mkResponse(), ok(), and notFound(), are inlined here from `@worker-tools/response-creators`
  */
 
+export const send = (status, body = null, init = {}) => {
+  const initial = { ...init };
+
+  initial.status = initial.status || 200;
+  initial.statusText = initial.statusText || 'OK';
+
+  if (body && typeof body === 'object') {
+    const ct = 'content-type';
+    initial.headers[ct] = initial.headers[ct] || 'application/json';
+
+    return new Response(JSON.stringify(body), initial);
+  }
+
+  return new Response(body, initial);
+};
+
 export const mkResponse =
   (status, statusText) =>
   (body = null, init = {}) =>
-    new Response(body, {
-      ...init,
-      status,
-      statusText,
-    });
+    send(status, body, init);
 
-export const json = (data) =>
-  mkResponse(200, 'OK')(JSON.stringify(data), {
-    headers: { 'content-type': 'application/json' },
-  });
-
-export const ok = mkResponse(200, 'OK');
-export const notFound = mkResponse(404, 'Not Found');
+export const ok = (body = null, init = {}) => send(200, body, init);
+export const json = (body = {}, init = {}) => send(200, body, init);
+export const notFound = (body = null, init = {}) =>
+  send(404, body, { ...init, statusText: 'Not Found' });
 
 export class Router {
   constructor(options = {}) {

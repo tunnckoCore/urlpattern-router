@@ -1,11 +1,12 @@
 {
+  "private": true,
   "name": "urlpattern-router",
   "version": "1.0.1",
   "license": "Apache-2.0",
+  "description": "Router based on URLPattern Web Specification, in 150 lines. An isomorphic router for @denoland, @nodejs, @cloudflare, Browsers, or anything that has support for it.",
   "workspaces": [
     "./"
   ],
-  "description": "Router based on URLPattern Web Specification, in 150 lines. An isomorphic router for @denoland, @nodejs, @cloudflare, Browsers, or anything that has support for it.",
   "author": "@tunnckoCore",
   "type": "module",
   "main": "index.js",
@@ -13,6 +14,7 @@
     "index.js"
   ],
   "scripts": {
+    "build:esm": "esbuild --format=esm index.js --outdir=dist --minify",
     "cf:dev": "echo localhost:8787 && wrangler dev ./examples/cloudflare-worker.js",
     "cf:local": "echo localhost:8787 && wrangler dev ./examples/cloudflare-worker.js --local",
     "denoland": "deno run -A ./examples/deno/main.js"
@@ -23,6 +25,7 @@
     "@tunnckocore/prettier-config": "^3.0.0",
     "asia": "^3.3.0",
     "asia-cli": "^3.3.0",
+    "esbuild": "^0.15.10",
     "urlpattern-router": "^1.0.0",
     "wrangler": "^2.1.10",
     "xaxa": "^4.1.0"
