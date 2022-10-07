@@ -33,7 +33,7 @@ export const notFound = (body = null, init = {}) =>
 export class Router {
   constructor(options = {}) {
     this._routes = [];
-    this._options = { baseURL: 'http://example.com', ...options };
+    this._options = { baseURL: 'http://host', ...options };
   }
 
   clear() {
@@ -76,7 +76,7 @@ export class Router {
 
     if (!(url instanceof URL)) {
       url = url.startsWith('/')
-        ? new URL(`http://localhost${url}`)
+        ? new URL(`${this._options.baseURL}${url}`)
         : new URL(url);
     }
 
