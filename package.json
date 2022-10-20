@@ -1,6 +1,6 @@
 {
   "name": "urlpattern-router",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "license": "Apache-2.0",
   "description": "Router based on URLPattern Web Specification, in 150 lines. An isomorphic router for @denoland, @nodejs, @cloudflare, Browsers, or anything that has support for it.",
   "author": "@tunnckoCore",
