@@ -12,9 +12,14 @@ export const send = (status, body = null, init = {}) => {
 
   if (body && typeof body === 'object') {
     const ct = 'content-type';
-    initial.headers[ct] = initial.headers[ct] || 'application/json';
+		const ctlen = 'content-length';
+		const contents = JSON.stringify(body);
 
-    return new Response(JSON.stringify(body), initial);
+		initial.headers = initial.headers || {};
+    initial.headers[ct] = initial.headers[ct] || 'application/json';
+    initial.headers[ctlen] = initial.headers[ctlen] || contents.length;
+
+    return new Response(contents, initial);
   }
 
   return new Response(body, initial);
@@ -33,7 +38,8 @@ export const notFound = (body = null, init = {}) =>
 export class Router {
   constructor(options = {}) {
     this._routes = [];
-    this._options = { baseURL: 'http://host', ...options };
+    this._options = { baseURL: 'http://example-host', ...options };
+		this._baseUrl = this._options.baseURL || this._options.baseUrl;
   }
 
   clear() {
@@ -60,7 +66,7 @@ export class Router {
       this._routes.push({
         pattern:
           typeof pattrn === 'string'
-            ? new URLPattern(pattrn, options.baseURL)
+            ? new URLPattern(pattrn, this._baseUrl)
             : new URLPattern(pattrn),
 
         handler,
@@ -76,7 +82,7 @@ export class Router {
 
     if (!(url instanceof URL)) {
       url = url.startsWith('/')
-        ? new URL(`${this._options.baseURL}${url}`)
+        ? new URL(`${this._baseUrl}${url}`)
         : new URL(url);
     }
 
@@ -85,7 +91,7 @@ export class Router {
 
       if (options.method && options.method !== method) continue;
 
-      const matched = pattern.exec(url.pathname, options.baseURL);
+      const matched = pattern.exec(url.pathname, this._baseUrl);
       if (matched) {
         return {
           url,
@@ -93,6 +99,8 @@ export class Router {
           method,
           handler,
           request,
+					baseURL: this._baseUrl,
+					baseUrl: this._baseUrl,
           pathname: matched.pathname.input, // same as `url.pathname`
           params: matched.pathname.groups,
           groups: matched.pathname.groups,

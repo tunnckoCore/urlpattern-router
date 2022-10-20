@@ -2927,6 +2927,11 @@ urlpattern-polyfill@^4.0.3:
   resolved "https://registry.yarnpkg.com/urlpattern-polyfill/-/urlpattern-polyfill-4.0.3.tgz#c1fa7a73eb4e6c6a1ffb41b24cf31974f7392d3b"
   integrity sha512-DOE84vZT2fEcl9gqCUTcnAw5ZY5Id55ikUcziSUntuEFL3pRvavg5kwDmTEUJkeCHInTlV/HexFomgYnzO5kdQ==
 
+urlpattern-router@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/urlpattern-router/-/urlpattern-router-1.1.1.tgz#9ea79f6389e47454ec943032959b740ab28e2ab5"
+  integrity sha512-DP9i1FnUZ0l3NtarcaxWmSbUyCfdT+igZjgnuhHEIqxtaLty2lGSNvLFXPFXAEqyb7DukaGdmqRMUXSZBiuKuw==
+
 util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
