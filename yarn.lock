@@ -1690,9 +1690,9 @@ html-rewriter-wasm@^0.4.1:
   integrity sha512-lNovG8CMCCmcVB1Q7xggMSf7tqPCijZXaH4gL6iE8BFghdQCbaY5Met9i1x2Ex8m/cZHDUtXK9H6/znKamRP8Q==
 
 http-cache-semantics@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/http-cache-semantics/-/http-cache-semantics-4.1.0.tgz#49e91c5cbf36c9b94bcfcd71c23d5249ec74e390"
-  integrity sha512-carPklcUh7ROWRK7Cv27RPtdhYhUsela/ue5/jKzjegVvXDqM2ILE9Q2BGn9JZJh1g87cp56su/FgQSzcWS8cQ==
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/http-cache-semantics/-/http-cache-semantics-4.1.1.tgz#abe02fcb2985460bf0323be664436ec3476a6d5a"
+  integrity sha512-er295DKPVsV82j5kw1Gjt+ADA/XYHsajl82cGNQG2eyoPkvgUhX+nDIyelzhIWbbsXP39EHcI6l5tYs2FYqYXQ==
 
 human-signals@^3.0.1:
   version "3.0.1"
@@ -2926,11 +2926,6 @@ urlpattern-polyfill@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/urlpattern-polyfill/-/urlpattern-polyfill-4.0.3.tgz#c1fa7a73eb4e6c6a1ffb41b24cf31974f7392d3b"
   integrity sha512-DOE84vZT2fEcl9gqCUTcnAw5ZY5Id55ikUcziSUntuEFL3pRvavg5kwDmTEUJkeCHInTlV/HexFomgYnzO5kdQ==
-
-urlpattern-router@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/urlpattern-router/-/urlpattern-router-1.1.1.tgz#9ea79f6389e47454ec943032959b740ab28e2ab5"
-  integrity sha512-DP9i1FnUZ0l3NtarcaxWmSbUyCfdT+igZjgnuhHEIqxtaLty2lGSNvLFXPFXAEqyb7DukaGdmqRMUXSZBiuKuw==
 
 util-deprecate@~1.0.1:
   version "1.0.2"
