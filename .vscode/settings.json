@@ -1,0 +1,25 @@
+{
+  "git.autofetch": true,
+  "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*rc": "yaml",
+    ".npmrc": "ini"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.prettier": true,
+    "source.fixAll.eslint": true
+  },
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "[javascript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[svelte]": {
+  //   "editor.defaultFormatter": "svelte.svelte-vscode"
+  // },
+  "eslint.run": "onSave",
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
+}

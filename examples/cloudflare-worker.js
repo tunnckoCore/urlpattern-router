@@ -9,19 +9,19 @@ const router = new Router();
 router
   .get('/', () => ok('Homepage hehe!'))
   .get('/item/:id', (req, { params, baseUrl, ...restContext }) => {
-		const { host, protocol } = new URL(req.url);
-		const actualBaseUrl = `${protocol}//${host}`;
+    const { host, protocol } = new URL(req.url);
+    const actualBaseUrl = `${protocol}//${host}`;
 
-		const parts = [
-			`Matching id: ${params.id}`,
-			`BaseURL set: ${baseUrl}`,
-			`BaseURL actual: ${actualBaseUrl}`,
-			`Actual url: ${req.url}`,
-			JSON.stringify({params, ...restContext}, null, 2),
-		]
+    const parts = [
+      `Matching id: ${params.id}`,
+      `BaseURL set: ${baseUrl}`,
+      `BaseURL actual: ${actualBaseUrl}`,
+      `Actual url: ${req.url}`,
+      JSON.stringify({ params, ...restContext }, null, 2),
+    ];
 
-		return ok(parts.join('\n'));
-	})
+    return ok(parts.join('\n'));
+  })
   .get('/api/hello', () => json({ hello: 'world' }))
   .get('/api/hi/:name', (req, { params: { name } }) => json({ hi: name }));
 
